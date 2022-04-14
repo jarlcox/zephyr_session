@@ -59,8 +59,8 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     
     @Autowired
     private AuthenticationManager authenticationManager;
-    @Autowired
-    private UserDetailsServiceImpl userDetailsService;
+    //@Autowired
+    //private UserDetailsServiceImpl userDetailsService;
 
     /**
      * 该方法是用来配置Authorization Server endpoints的一些非安全特性的，比如token存储、token自定义、授权类型等等的
@@ -70,7 +70,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
     	endpoints
     		.authenticationManager(this.authenticationManager)
-    		.tokenStore(tokenStore())
-    		.userDetailsService(this.userDetailsService);
+    		.tokenStore(tokenStore());
+    		//.userDetailsService(this.userDetailsService);
     }
 }
